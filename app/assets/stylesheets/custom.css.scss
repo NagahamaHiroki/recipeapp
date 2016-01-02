@@ -22,9 +22,9 @@ $navbar-default-bg: #312312;
     text-decoration: none;
 }
 
-body{
-    padding-top: 80px;
-}
+
+
+
 
 .nav_item{
     margin-left: 25px;
@@ -60,7 +60,6 @@ h2{
     margin-top: 25px;
     border-top: 1px solid #eaeaea;
     color: #777;
-    position: absolute;
     bottom: 0;
 }
 
@@ -70,4 +69,23 @@ h2{
 
 .gravatar{
     border-radius: 50%;
+}
+
+.well {
+    background-color: #ededed;
+}
+
+input, textarea, select, .uneditable-input{
+    border: 1px solid #d2d2d2;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+input{
+    height: auto !important;
+}
+
+.row{
+    display: inline;
 }
