@@ -1,5 +1,6 @@
 <%= render 'shared/page_title', title: "All Recipes" %>
 <hr/>
+<%= will_paginate %>
 <% @recipes.each  do |t| %>
 <div class="row">
     
@@ -13,8 +14,18 @@
         <h4><%= link_to t.name, recipe_path(t) %> </h4>
         <p><%= t.summary %></p>
         <p>
-            <span class="quiet"><small>about<%= time_ago_in_words(t.created_at) %> ago</small></span>
+            <span class="quiet"><small>created:<%= time_ago_in_words(t.created_at) %> ago,</small></span>
+            <span class="quiet"><small>updated: <%= time_ago_in_words(t.updated_at) %> ago</small></span>
         </p>
+        </p>
+        <div class="pull-right">
+                <%= link_to like_recipe_path(t, like: true), method: :post do %>
+                    <i class="glyphicon glyphicon-thumbs-up"></i>　&nbsp <%= t.thumbs_up_total %>
+                <% end %> &nbsp&nbsp&nbsp&nbsp
+                <%= link_to like_recipe_path(t, like: false), method: :post do %>
+                    <i class="glyphicon glyphicon-thumbs-down"></i> &nbsp <%= t.thumbs_down_total %>
+                <% end %>
+        </div>
     </div>
     <div class="col-md-4">
         <%= image_tag(t.picture.url, size: "250x150", class: "gravatar") if t.picture? %>
@@ -23,3 +34,5 @@
 <hr/>
 
 <% end %>
+
+<%= will_paginate %>

@@ -8,11 +8,14 @@
 </head>
 <body>
   
-    <%= render 'layouts/header' %>
+    <header class="navbar navbar-fixed-top navbar-default" >
+      <%= render 'layouts/header' %>
+    </header>
+  
+  <div class="container">
     <%= render 'layouts/messages' %>
-    <div class="container">
-      <%= yield %>
-    </div>
+    <%= yield %>
+  </div>
     
     <%= render 'layouts/footer' %>
     
