@@ -6,7 +6,7 @@
     
     <div class ="col-md-2">
         <section class="chef_info text-center">
-            <%= gravatar_for t.chef, size: 100 %>
+            <%= link_to gravatar_for(t.chef, size: 100), chef_path(t.chef) %>
             <h5>Chef name: <%= t.chef.chefname %></h5>
         </section>
     </div>
