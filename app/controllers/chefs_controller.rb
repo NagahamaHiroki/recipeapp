@@ -1,5 +1,5 @@
 class ChefsController < ApplicationController
-     before_action :set_chef, only:[:edit, :update, :show]
+    before_action :set_chef, only:[:edit, :update, :show]
     before_action :require_same_user, only:[:edit, :update]
     
     def index
@@ -15,10 +15,8 @@ class ChefsController < ApplicationController
         
         if @chef.save
             flash[:success] = 'Your account was successfully registered'
-            session[:chef_id] = @chef.id
+            session[:chef_id] = @chef
             redirect_to recipes_path
-            
-            
         else
             flash[:danger] = 'Danger'
             render 'new'
@@ -47,12 +45,11 @@ class ChefsController < ApplicationController
     end
     
     def set_chef
-        @chef = Chef.edit(params[:id])
+        @chef = Chef.find(params[:id])
     end
     
     def require_same_user
-    
-        if current_user != @user
+        if current_user != @chef
         flash[:danger] = "You can only edit your own profile"
         redirect_to root_path
         end

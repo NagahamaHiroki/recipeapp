@@ -10,7 +10,16 @@
             
             <%= f.label :description%>
             <%= f.text_area:description, rows: 10 %>
-            
+            <strong>Styles:</strong>
+            <%= f.collection_check_boxes :style_ids, Style.all, :id, :name do |cd| %>
+                <% cd.label(class: "checkbox-inline") {cd.check_box(class: "checkbox") +cd.text} %>
+            <% end %>
+            <br><br>
+            <strong>Ingredients:</strong>
+            <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name do |cd| %>
+                <% cd.label(class: "checkbox-inline") {cd.check_box(class: "checkbox") +cd.text} %>
+            <% end %>
+            <br><br>
             <span class="picture">
                 <%= f.file_field :picture, accept: 'image/jpeg, image/gif, image/png' %>
             </span>

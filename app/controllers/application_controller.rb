@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user, :logged_in?
   
-  def current_user 
+  def current_user
     @current_user ||= Chef.find(session[:chef_id]) if session[:chef_id]
   end
   
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     if !logged_in?
       flash[:danger]= "You must Log in"
       redirect_to root_path
-      end
+    end
   end
   
 end
